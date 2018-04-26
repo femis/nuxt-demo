@@ -1,11 +1,15 @@
 import express from 'express'
-import { Nuxt, Builder } from 'nuxt'
+import {Nuxt, Builder} from 'nuxt'
 
 import api from './api'
 
 const app = express()
-const host = process.env.HOST || '127.0.0.1'
-const port = process.env.PORT || 3000
+//const host = process.env.HOST || '127.0.0.1'
+//const port = process.env.PORT || 3000
+
+const host = '127.0.0.1'
+const port = 3000
+
 
 app.set('port', port)
 
@@ -21,8 +25,8 @@ const nuxt = new Nuxt(config)
 
 // Build only in dev mode
 if (config.dev) {
-  const builder = new Builder(nuxt)
-  builder.build()
+    const builder = new Builder(nuxt)
+    builder.build()
 }
 
 // Give nuxt middleware to express
